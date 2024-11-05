@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <title>Expense Manager</title>
+  <style>
+    #income_form {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <main>
+    <div class="main__wrapper grid grid-cols-12">
+      <!-- Sidebar -->
+      <div class="sibar__bar col-span-2 bg-green min-h-screen">
+        <div class="px-8 pb-8 pt-[64px]">
+          <nav>
+            <ul class="flex flex-col gap-5">
+              <li class="text-white font-medium text-lg"><a href="#">Home</a></li>
+              <li class="text-white font-medium text-lg"><a href="#">Reports</a></li>
+              <li class="text-white font-medium text-lg"><a href="#">Profile</a></li>
+              <li class="text-white font-medium text-lg"><a href="#">Category</a></li>
+              <li class="text-white font-medium text-lg"><a href="#">Setting</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- Main Area -->
+      <div class="relative col-span-10">
+        <div class="">
+          <header class="bg-white px-8 py-5">
+            <div>
+              <span>
+                <img src="" alt="">
+              </span>
+              <span class="font-medium">
+                Nabeel
+              </span>
+            </div>
+          </header>
+          <div class="relative main_area px-24 py-5">
+            <div class="expense__entry">
+              <div class="entry__date">
+
+              </div>
+              <div class="entry__main flex flex-col gap-8">
+                <div class="single__entry bg-white p-6 rounded-lg">
+                  <div class="flex justify-between items-center mb-3">
+                    <!-- Details -->
+                     <div class="">
+                      <div class="flex items-center">
+                        <div class="">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                          </svg>                                                
+                        </div>
+                        <div class="ml-3">
+                          <h4 class="text-xl font-semibold">Category</h4>
+                          <p>Cash</p>
+                        </div>
+                      </div>
+                     </div>
+                    <!-- Amout -->
+                    <div class="font-medium">
+                      6700
+                    </div>
+                  </div>
+                  <p>Description</p>
+                </div>
+                <!-- single entry -->
+              </div>
+            </div>
+          </div>
+          <!-- Form opening button -->
+          <div id="form__btn" class="add_btn bg-green cursor-pointer rounded-full p-5 absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="#" class="text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path fill="#ffffff" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>            
+            </a>
+          </div>
+          <!-- Income Form -->
+          <div id="income_form" class="add_income px-10 pb-10 bg-white max-w-[600px] mx-auto rounded-2xl fixed left-1/2 transform -translate-x-1/2 w-full">
+            <div id="closeBtn" class="cursor-pointer absolute right-0 top-[-45px] text-white bg-red-700 rounded-full p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>            
+            </div>
+            <div class="text-center border-b py-5 mb-8">
+              <h2 class="font-semibold">Add Income</h2>
+            </div>
+            <form action="" class="flex flex-col gap-6">
+              <div>
+                <input type="text" placeholder="Amount" class="border border-gray-200 rounded-full px-4 py-2 w-full">
+              </div>
+              <div>
+                <select name="Category" id="cat" class="border border-gray-200 rounded-full px-4 py-2 w-full">
+                  <option value="Rent">Rent</option>
+                  <option value="salary">Salary</option>
+                  <option value="businessincome">Business Income</option>
+                </select>
+              </div>
+              <div>
+                <select name="Payment Type" id="payment_type" class="border border-gray-200 rounded-full px-4 py-2 w-full">
+                  <option value="Rent">Cash</option>
+                  <option value="salary">Deposite</option>
+                </select>
+              </div>
+              <div>
+                <input type="textarea" placeholder="Description" class="border border-gray-200 rounded-full px-4 py-2 w-full">
+              </div>
+              <div>
+              <button type="submit" class="bg-green cursor-pointer px-4 h-8 rounded-full text-white inline-flex items-center">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </main>
+
+
+  <script>
+    const incomeForm = document.getElementById('income_form');
+    const openBtn = document.getElementById('form__btn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Open Button
+    openBtn.onclick = function () {
+      incomeForm.style.display = 'block';
+    };
+    // close Button
+    closeBtn.onclick = function () {
+      incomeForm.style.display = 'none';
+    }
+    //close button when click on outside of the form 
+    window.onclick = function(event) {
+      if (event.target == incomeForm) {
+        incomeForm.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
